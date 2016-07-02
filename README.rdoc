@@ -1,0 +1,4 @@
+== README
+
+This README is for the project management app, I will use to create this project
+Postgresql as a database, Ruby on Rails as a framework and others tools.
