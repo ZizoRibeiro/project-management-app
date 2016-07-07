@@ -3,7 +3,6 @@
   <h1><%=t '.title', :default => [:'helpers.titles.new', 'Invite New %{model}'],
       :model => model_class.model_name.human.titleize %></h1>
 </div>
-
 <%= form_for(@member, :html => { :class => "form login"}) do |f| %>
 <% if @member.errors.any? %>
 <div id="error_expl" class="panel panel-danger">
@@ -14,6 +13,7 @@
     <ul>
       <% @member.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
+      <% end %>
     </ul>
   </div>
 </div>
