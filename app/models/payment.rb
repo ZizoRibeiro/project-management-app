@@ -3,7 +3,7 @@ class Payment < ActiveRecord::Base
   attr_accessor :card_number, :card_cvv, :card_expires_month, :card_expires_year
 
   def self.month_options
-    Date::MONTHNAMES.compact.each_with_index.map { |name, i| ["#{i+1} - #{name}", i+1]}
+    Date::MONTHNAMES.compact.each_with_index.map { |name,i| ["#{i+1} - #{name}", i+1] }
   end
 
   def self.year_options
@@ -11,11 +11,12 @@ class Payment < ActiveRecord::Base
   end
 
   def process_payment
-    customer = Striper::Customer.create email: email, card: token
+    customer = Stripe::Customer.create email: email, card: token
 
     Stripe::Charge.create customer: customer.id,
                           amount: 1000,
                           description: 'Premium',
-                          currency: "cad"
+                          currency: 'usd'
+
   end
 end
