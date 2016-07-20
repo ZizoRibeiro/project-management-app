@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :artifacts
   resources :user_projects
   resources :artifacts
   resources :tenants do
